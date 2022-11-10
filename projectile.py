@@ -12,9 +12,13 @@ class Projectile:
         self.position = position # Attention ici position sera un tuple (x,y)
         self.vitesse = 5
         self.degat = 10
-        self.rect=self.image.get_rect()# donner les coordonné exacte du joueur ou essayer plusieur chiffre à x ou y pour que l'objet sorte de sa main
-        self.rect.x = joueur.rect.x +50
-        self.rect.y = joueur.rect.y +50
+        self.image=pygame.image.load('Sprites/Etoile.png')#telecharger l'image du projectile
+        self.image =pygame.transform.scale(self.image,(50,50))#redimensionner l'image
+       # self.rect=self.image.get_rect()# donner les coordonné exacte du joueur ou essayer plusieur chiffre à x ou y pour que l'objet sorte de sa main
+       # self.rect.x = joueur.rect.x +50
+       # self.rect.y = joueur.rect.y +50
+    def remove(self):
+        self.all_projectiles.remove(self)
 
     def deplacement(self):
         (x, y) = self.position
